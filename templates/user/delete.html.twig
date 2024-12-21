@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmer la suppression{% endblock %}
+
+{% block body %}
+    <h1>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</h1>
+    <p>Cette action est irréversible.</p>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+        <a href="{{ path('utilisateur_index') }}" class="btn">Annuler</a>
+    </form>
+{% endblock %}

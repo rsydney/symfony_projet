@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des dettes{% endblock %}
+
+{% block body %}
+    <h1>Liste de toutes les dettes</h1>
+
+    <form method="get" action="{{ path('dette_index') }}" class="mb-3">
+        <label for="client_id"><strong>Filtrer par client :</strong></label>
+        <select name="client_id" id="client_id">
+            <option value="">Tous</option>
+            {% for c in clients %}
+                <option value="{{ c.id }}" {% if clientId == c.id %}selected{% endif %}>
+                    {{ c.nom }} {{ c.prenom }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Filtrer</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Montant</th>
+                <th>Versé</th>
+                <th>Restant</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dette in dettes %}
+                <tr>
+                    <td>{{ dette.client.nom }} {{ dette.client.prenom }}</td>
+                    <td>{{ dette.montant }}€</td>
+                    <td>{{ dette.montantVerser }}€</td>
+                    <td>{{ dette.montant - dette.montantVerser }}€</td>
+                    <td>{{ dette.statut }}</td>
+                    <td>
+                        <a href="{{ path('dette_show', { id: dette.id }) }}" class="btn btn-info btn-sm">Voir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {{ knp_pagination_render(dettes) }}
+{% endblock %}
+

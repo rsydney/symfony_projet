@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+    <h1>Liste des articles</h1>
+
+    <a href="{{ path('article_create') }}" class="btn btn-success mb-3">Ajouter un nouvel article</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>qteStock</th>
+                <th>qteRestante</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.nom }}</td>
+                    <td>{{ article.prix }}</td>
+                    <td>{{ article.qteStock }}</td>
+                    <td>{{ article.qteRestante }}</td>
+                    <td>
+                        <a href="{{ path('article_show', { id: article.id }) }}">Voir l'article</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucun article trouvé.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {{ knp_pagination_render(articles) }}
+    </div>
+{% endblock %}

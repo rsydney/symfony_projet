@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Application{% endblock %}</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        /* Styles pour la sidebar */
+        body {
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #6366f1; /* Couleur sombre */
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4a5568; /* Couleur au survol */
+        }
+
+        .content {
+            margin-left: 250px; /* Espace pour la sidebar */
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        footer {
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+    <h2 style="text-align: center;">GESTION DETTE</h2>
+        <a href="{{ path('app_dashboard') }}">Tableau de bord</a>
+        <a href="{{ path('client_index') }}">Clients</a>
+        <a href="{% if client is defined %}{{ path('client_dettes_show', { id: client.id }) }}{% else %}#{% endif %}">Dettes</a>
+        <a href="{% if article is defined %}{{ path('carticle_show', { id: article.id }) }}{% else %}#{% endif %}">Articles</a>
+        <a href="{{ path('utilisateur_index') }}">Utilisateurs</a>
+        <a href="{{ path('app_register') }}">Connexion</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        <header>
+            <h1>Mon Application</h1>
+        </header>
+
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Mon Application</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+

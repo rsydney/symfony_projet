@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une dette{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une dette pour {{ client.nom }} {{ client.prenom }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.montant) }}
+        {{ form_row(form.montantVerser) }}
+        {{ form_row(form.description) }}
+        <button type="submit">Ajouter</button>
+    {{ form_end(form) }}
+{% endblock %}

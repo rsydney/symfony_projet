@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'article{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'article</h1>
+
+    <p><strong>ID :</strong> {{ article.id }}</p>
+    <p><strong>Nom :</strong> {{ article.nom }}</p>
+    <p><strong>Prix :</strong> {{ article.prix }}</p>
+    <p><strong>Prix :</strong> {{ article.qteStock }}</p>
+    <p><strong>Prix :</strong> {{ article.qteRestante }}</p>
+
+    <a href="{{ path('article_index') }}">Retour à la liste des articles</a>
+{% endblock %}

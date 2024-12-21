@@ -1,0 +1,26 @@
+{
+  "name": "final_exam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "encore dev",
+    "production": "webpack --mode production",
+    "watch": "webpack --watch",
+        "build": "encore production"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^1.0.0",
+    "postcss-loader": "^6.0.0",
+    "webpack-dev-server": "^4.0.0",
+    "webpack-notifier": "^1.6.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

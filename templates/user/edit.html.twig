@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'utilisateur</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.login) }}
+        {{ form_row(form.password) }}
+        <button class="btn">Mettre à jour</button>
+    {{ form_end(form) }}
+{% endblock %}

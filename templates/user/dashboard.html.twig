@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;">Bienvenue sur votre tableau de bord</h1>
+    <p style="text-align: center;">Vous êtes connecté avec succès !</p>
+
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <button onclick="location.href='{{ path('utilisateur_index') }}'" style="padding: 12px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+            Voir les users
+        </button>
+        <button onclick="location.href='{{ path('client_index') }}'" style="padding: 12px 20px; background-color: #6366f1; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+            Voir les clients
+        </button>
+    </div>
+{% endblock %}
+

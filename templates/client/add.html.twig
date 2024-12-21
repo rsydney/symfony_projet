@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter un client</h1>
+    <form method="post" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+        <input type="text" name="prenom" placeholder="Prénom" required
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <input type="text" name="nom" placeholder="Nom" required
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+                   <input type="text" name="surname" placeholder="surname" required
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <input type="text" name="telephone" placeholder="Téléphone" required
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <input type="text" name="adresse" placeholder="Adresse" required
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <label style="font-size: 14px; display: flex; align-items: center;">
+            <input type="checkbox" name="create_user_account" style="margin-right: 10px;">
+            Créer un compte utilisateur
+        </label>
+
+        <input type="text" name="login" placeholder="Login" 
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <input type="password" name="password" placeholder="Mot de passe" 
+            style="padding: 10px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   font-size: 14px; 
+                   outline: none;">
+
+        <button type="submit" style="
+            padding: 10px; 
+            background-color: #6366f1; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            cursor: pointer;
+            text-transform: uppercase;">
+            Créer
+        </button>
+    </form>
+{% endblock %}

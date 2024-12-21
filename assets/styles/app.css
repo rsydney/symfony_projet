@@ -1,0 +1,10 @@
+/* assets/styles/app.css */
+
+/* Importation des styles de base de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Si tu veux ajouter des styles personnalisés, fais-le ici */
+
+

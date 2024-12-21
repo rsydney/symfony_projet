@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Filtrer par numéro</h1>
+    <form method="get" style="margin-bottom: 20px;">
+        <input type="text" name="telephone" placeholder="Téléphone" value="{{ telephoneFilter }}" 
+            style="padding: 8px 12px; 
+                   border: 2px solid #6366f1; 
+                   border-radius: 5px; 
+                   outline: none; 
+                   margin-right: 10px; 
+                   font-size: 14px; 
+                   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+
+        <button type="submit" style="
+            padding: 8px 15px; 
+            background-color: #6366f1; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 14px; 
+            font-weight: bold; 
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            Rechercher
+        </button>
+    </form>
+
+    <!-- Bouton pour accéder au formulaire d'ajout -->
+    <div style="margin-bottom: 20px;">
+        <a href="{{ path('client_add') }}" style="
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #6366f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        ">Créer un client</a>
+    </div>
+
+    <!-- Tableau des clients -->
+    <div class="container">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f3f4f6; color: #374151;">
+                    <th style="padding: 10px; border-bottom: 1px solid #e5e7eb;">ID</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #e5e7eb;">Prénom</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #e5e7eb;">Nom</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #e5e7eb;">Téléphone</th>
+                    <th style="padding: 10px; border-bottom: 1px solid #e5e7eb;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                    <tr style="text-align: center">
+                        <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">{{ client.id }}</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">{{ client.prenom }}</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">{{ client.nom }}</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">{{ client.telephone }}</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">
+                            <a href="{{ path('client_details', {id: client.id}) }}"></a>
+                            <a href="{{ path('client_dettes_show', {id: client.id}) }}">Voir les dettes</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {{ knp_pagination_render(clients) }}
+{% endblock %}
+
+

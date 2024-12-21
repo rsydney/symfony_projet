@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails de {{ client.nom }} {{ client.prenom }}</h1>
+    <p>Téléphone : {{ client.telephone }}</p>
+    <p>Adresse : {{ client.adresse }}</p>
+    <h2>Dettes</h2>
+    <ul>
+        {% for dette in dettes %}
+            <li>{{ dette.montant }} - {{ dette.date|date('d/m/Y') }}</li>
+        {% endfor %}
+    </ul>
+    <p>Total des dettes : {{ montantTotal }}</p>
+    <p>Montant versé : {{ montantVerser }}</p>
+    <p>Montant restant : {{ montantRestant }}</p>
+{% endblock %}
